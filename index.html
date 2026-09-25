@@ -1,0 +1,1129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>FastFit · Encuentra un profesional que se adapte a tus objetivos</title>
+<meta name="description" content="Personal trainers, nutricionistas, fisioterapeutas y chefs verificados en Lima Metropolitana.">
+<link rel="icon" href="images/logo.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+
+:root {
+  --green-header: #17422e;
+  --green-band: #15462b;
+  --green-title: #255c3a;
+  --green-heading: #1a452c;
+  --mint: #eff5f3;
+  --line: #d7e6e2;
+  --ink: #17302c;
+  --muted: #566c67;
+  --accent: #1f8a70;
+  --btn: #0b4f4a;
+  --coral: #ff6b4a;
+  --peach: #ffa28e;
+  --avatar-bg: #e4efec;
+  --container: 1240px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  font-family: "Plus Jakarta Sans", system-ui, sans-serif; letter-spacing: -.01em;
+  color: var(--ink);
+  background: #fff;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+main { flex: 1; }
+a { color: inherit; text-decoration: none; }
+button, input, select { font-family: inherit; }
+img { max-width: 100%; }
+.container { width: 100%; max-width: var(--container); margin: 0 auto; padding: 0 20px; }
+.sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* ---------- Header ---------- */
+.site-header { background: var(--green-header); height: 84px; position: relative; z-index: 20; }
+.site-header .inner { max-width: 1280px; margin: 0 auto; height: 100%; display: flex; align-items: center; justify-content: space-between; padding-right: 61px; position: relative; }
+.brand { display: flex; align-items: center; height: 100%; }
+.brand .logo { width: 40px; height: 40px; object-fit: cover; border-radius: 10px; }
+.brand .logo-fallback { width: 40px; }
+.brand .name { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -.01em; color: var(--coral); margin-left: 10px; }
+.main-nav { display: flex; gap: 28px; font-weight: 500; font-size: 15px; color: var(--peach); }
+.main-nav a { padding: 6px 0; border-bottom: 2px solid transparent; transition: color .15s, border-color .15s; font-weight: 500; }
+.main-nav a:hover, .main-nav a.active { color: #fff; border-color: var(--coral); }
+.nav-toggle { display: none; background: none; border: 0; color: var(--peach); font-size: 28px; cursor: pointer; }
+
+/* ---------- Hero ---------- */
+.hero { position: relative; background: var(--green-band) center/cover no-repeat; min-height: 300px; padding: 64px 20px 0; text-align: center; overflow: hidden; }
+.hero::before { content: ""; position: absolute; inset: 0; background: url("images/hero.jpg") center/cover no-repeat; filter: grayscale(1); opacity: .9; }
+.hero > * { position: relative; }
+.hero h1 { font-family: "Space Grotesk", sans-serif; font-weight: 500; font-size: 46px; line-height: 1.18; letter-spacing: -.02em; color: var(--green-title); max-width: 660px; margin: 0 auto; }
+.hero p.sub { color: rgba(255,255,255,.85); font-size: 16px; font-weight: 400; margin: 14px 0 0; }
+.hero-compact { min-height: 0; padding: 40px 20px 44px; }
+.hero-compact h1 { font-size: 34px; }
+
+/* ---------- Search box ---------- */
+.search-box { background: #fff; border-radius: 14px; width: 720px; max-width: 100%; height: 66px; margin: 36px auto 0; padding: 8px; display: flex; align-items: center; gap: 12px; text-align: left; box-shadow: 0 16px 40px rgba(0,0,0,.16); }
+.search-field { display: flex; flex-direction: column; justify-content: center; gap: 2px; height: 100%; padding: 8px 16px; flex: 1; min-width: 0; }
+.search-field + .search-divider + .search-field { padding-left: 8px; }
+.search-field label { font-size: 10px; font-weight: 600; letter-spacing: .5px; color: var(--muted); text-transform: uppercase; }
+.search-field select, .search-field input { border: 0; outline: 0; padding: 0; background: transparent; font-size: 14px; font-weight: 500; color: var(--ink); width: 100%; appearance: none; -webkit-appearance: none; cursor: pointer; }
+.search-field input { cursor: text; }
+.search-divider { width: 1px; height: 40px; background: var(--line); flex-shrink: 0; }
+.btn-search { background: var(--coral); color: #fff; border: 0; border-radius: 9px; height: 100%; padding: 0 26px; font-size: 15px; font-weight: 600; cursor: pointer; transition: background .15s; }
+.btn-search:hover { filter: brightness(.94); }
+
+/* ---------- Chips ---------- */
+.chips-bar { background: var(--mint); padding: 22px 0; }
+.chips { display: flex; flex-wrap: wrap; justify-content: center; gap: 16px; }
+.chip { background: #fff; border: 1px solid var(--line); border-radius: 999px; padding: 9px 18px; font-size: 13px; font-weight: 500; color: var(--ink); cursor: pointer; white-space: nowrap; transition: background .15s, color .15s, border-color .15s; }
+.chip:hover { border-color: var(--accent); }
+.chip.active { background: var(--btn); border-color: var(--btn); color: #fff; }
+
+/* ---------- Sections ---------- */
+.section { padding: 64px 0 8px; }
+.section-title { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 32px; letter-spacing: -.01em; color: var(--green-heading); margin: 0 0 32px; position: relative; padding-bottom: 14px; }
+.section-title::after { content: ""; position: absolute; left: 0; bottom: 0; width: 40px; height: 3px; border-radius: 2px; background: var(--coral); }
+.grid-cards { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 32px; }
+
+/* ---------- Card profesional ---------- */
+.card { background: #fff; border: 1px solid var(--line); border-radius: 16px; padding: 20px; display: flex; flex-direction: column; gap: 12px; min-height: 230px; transition: box-shadow .2s, transform .2s, border-color .2s; }
+.card:hover { box-shadow: 0 12px 28px rgba(23, 48, 44, .08); transform: translateY(-2px); border-color: transparent; }
+.avatar { width: 56px; height: 56px; border-radius: 16px; background: var(--avatar-bg); overflow: hidden; display: flex; align-items: center; justify-content: center; font-weight: 600; color: var(--btn); flex-shrink: 0; position: relative; }
+.avatar img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
+.avatar.lg { width: 104px; height: 104px; border-radius: 26px; font-size: 30px; }
+.card .name { font-weight: 600; font-size: 17px; margin: 0; }
+.card .role { font-weight: 500; font-size: 13px; color: var(--accent); margin: 0; }
+.card .rating { font-size: 13px; color: var(--muted); margin: 0; }
+.card .zone-tag { font-size: 11px; font-weight: 600; color: var(--btn); background: var(--avatar-bg); padding: 3px 8px; border-radius: 10px; align-self: flex-start; }
+.card .foot { display: flex; align-items: center; justify-content: space-between; margin-top: auto; }
+.card .price { font-weight: 600; font-size: 14px; }
+.btn-primary { background: var(--btn); color: #fff; border: 0; border-radius: 8px; padding: 9px 15px; font-size: 12px; font-weight: 600; cursor: pointer; display: inline-block; transition: filter .15s, background .15s; }
+.btn-primary:hover { filter: brightness(1.15); }
+.btn-lg { padding: 14px 28px; font-size: 15px; border-radius: 10px; }
+.btn-coral { background: var(--coral); }
+.btn-outline { background: #fff; color: var(--btn); border: 1px solid var(--btn); }
+.btn-primary[disabled] { opacity: .4; cursor: not-allowed; }
+
+/* ---------- Info sections (home) ---------- */
+.steps { display: grid; grid-template-columns: repeat(3, 1fr); gap: 32px; }
+.step { background: var(--mint); border: 1px solid var(--line); border-radius: 16px; padding: 26px; }
+.step .num { font-family: "Space Grotesk", sans-serif; font-weight: 600; color: var(--coral); font-size: 26px; }
+.step h3 { margin: 8px 0; font-size: 17px; }
+.step p { margin: 0; color: var(--muted); font-size: 14px; line-height: 1.55; }
+.cta-band { background: var(--green-band); color: #fff; border-radius: 18px; padding: 36px; display: flex; align-items: center; justify-content: space-between; gap: 24px; flex-wrap: wrap; }
+.cta-band h3 { margin: 0 0 6px; font-size: 20px; }
+.cta-band p { margin: 0; color: #cfe3da; font-size: 14px; }
+.faq details { border: 1px solid var(--line); border-radius: 10px; padding: 14px 18px; margin-bottom: 10px; }
+.faq summary { font-weight: 600; cursor: pointer; font-size: 15px; }
+.faq p { color: var(--muted); font-size: 14px; line-height: 1.55; margin: 10px 0 0; }
+
+/* ---------- Resultados ---------- */
+.results-layout { display: grid; grid-template-columns: 260px 1fr; gap: 32px; padding: 40px 0 64px; align-items: start; }
+.filters { border: 1px solid var(--line); border-radius: 16px; padding: 22px; position: sticky; top: 16px; }
+.filters h3 { margin: 0 0 16px; font-size: 15px; }
+.filter-group { margin-bottom: 20px; }
+.filter-group label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; color: var(--muted); text-transform: uppercase; margin-bottom: 8px; }
+.filter-group select { width: 100%; padding: 10px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; background: #fff; }
+.filter-group input[type=range] { width: 100%; accent-color: var(--btn); }
+.range-val { font-size: 13px; font-weight: 600; margin-top: 4px; }
+.results-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px; flex-wrap: wrap; gap: 12px; }
+.results-head h2 { margin: 0; font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 26px; letter-spacing: -.01em; color: var(--green-heading); }
+.results-head .count { color: var(--muted); font-size: 14px; }
+.grid-results { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.empty { border: 1px dashed var(--line); border-radius: 14px; padding: 48px 24px; text-align: center; color: var(--muted); grid-column: 1 / -1; }
+
+/* ---------- Perfil / reserva / checkout ---------- */
+.page-pad { padding: 40px 0 72px; }
+.breadcrumb { font-size: 13px; color: var(--muted); margin-bottom: 24px; }
+.breadcrumb a { color: var(--accent); }
+.two-col { display: grid; grid-template-columns: 1fr 360px; gap: 32px; align-items: start; }
+.panel { border: 1px solid var(--line); border-radius: 16px; padding: 26px; background: #fff; }
+.panel + .panel { margin-top: 20px; }
+.panel h2 { margin: 0 0 14px; font-size: 18px; }
+.panel h3 { margin: 0 0 10px; font-size: 15px; }
+.profile-head { display: flex; gap: 24px; align-items: center; }
+.profile-head h1 { margin: 0 0 4px; font-size: 28px; }
+.profile-head .role { color: var(--accent); font-weight: 500; }
+.profile-head .rating { color: var(--muted); font-size: 14px; margin-top: 6px; }
+.tags { display: flex; flex-wrap: wrap; gap: 8px; }
+.tag { background: var(--mint); border: 1px solid var(--line); border-radius: 16px; padding: 6px 12px; font-size: 13px; }
+.review { border-top: 1px solid var(--line); padding: 14px 0; font-size: 14px; }
+.review:first-of-type { border-top: 0; }
+.review b { display: block; margin-bottom: 4px; }
+.review span { color: var(--muted); }
+.sticky-box { position: sticky; top: 16px; }
+.price-big { font-size: 26px; font-weight: 600; margin: 0 0 4px; }
+.muted { color: var(--muted); font-size: 13px; }
+.summary-row { display: flex; justify-content: space-between; font-size: 14px; padding: 8px 0; }
+.summary-row.total { border-top: 1px solid var(--line); margin-top: 8px; padding-top: 14px; font-weight: 600; font-size: 16px; }
+.days { display: grid; grid-template-columns: repeat(7, 1fr); gap: 8px; margin-bottom: 24px; }
+.day { border: 1px solid var(--line); background: #fff; border-radius: 10px; padding: 10px 4px; text-align: center; cursor: pointer; transition: all .2s; }
+.day small { display: block; font-size: 11px; color: var(--muted); text-transform: uppercase; }
+.day strong { font-size: 18px; }
+.day.active { background: var(--btn); border-color: var(--btn); color: #fff; }
+.day.active small { color: #cfe3da; }
+.slots { display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; }
+.slot { border: 1px solid var(--line); background: #fff; border-radius: 8px; padding: 10px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all .2s; }
+.slot:hover:not([disabled]) { border-color: var(--accent); }
+.slot.active { background: var(--coral); border-color: var(--coral); color: #fff; }
+.slot[disabled] { background: var(--mint); color: #a6b8b3; cursor: not-allowed; text-decoration: line-through; }
+.form-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+.form-grid .full { grid-column: 1 / -1; }
+.field label { display: block; font-size: 11px; font-weight: 600; letter-spacing: .5px; text-transform: uppercase; color: var(--muted); margin-bottom: 6px; }
+.field input { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; outline: 0; }
+.field input:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(31, 138, 112, .15); }
+.field .err { color: #c0392b; font-size: 12px; margin-top: 4px; min-height: 14px; }
+.field.invalid input { border-color: #c0392b; }
+.pay-methods { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; margin-bottom: 16px; }
+.pay-method { border: 1px solid var(--line); border-radius: 10px; padding: 14px 8px; text-align: center; font-size: 14px; font-weight: 500; cursor: pointer; background: #fff; transition: all .2s; }
+.pay-method.active { border-color: var(--btn); background: var(--mint); box-shadow: inset 0 0 0 1px var(--btn); }
+.confirm-box { max-width: 640px; margin: 0 auto; text-align: center; }
+.check { width: 72px; height: 72px; border-radius: 36px; background: var(--accent); color: #fff; font-size: 36px; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; }
+.confirm-box h1 { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 32px; letter-spacing: -.01em; color: var(--green-heading); margin: 0 0 8px; }
+.code { font-family: "JetBrains Mono", monospace; font-weight: 500; background: var(--mint); border: 1px dashed var(--accent); display: inline-block; padding: 8px 16px; border-radius: 8px; margin: 12px 0 24px; font-size: 17px; letter-spacing: .02em; }
+.confirm-box .panel { text-align: left; margin-bottom: 24px; }
+.actions { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+
+/* ---------- Footer ---------- */
+.site-footer { background: var(--green-header); color: #a9c4bb; padding: 26px 0; font-size: 13px; margin-top: 48px; }
+.site-footer .container { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+.site-footer b { font-family: "Space Grotesk", sans-serif; color: var(--coral); font-weight: 600; }
+
+/* ---------- Toast ---------- */
+.toast { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%); background: var(--ink); color: #fff; padding: 12px 20px; border-radius: 8px; font-size: 14px; z-index: 100; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  .grid-cards { grid-template-columns: repeat(2, 1fr); }
+  .results-layout, .two-col { grid-template-columns: 1fr; }
+  .filters, .sticky-box { position: static; }
+  .steps { grid-template-columns: 1fr; }
+}
+@media (max-width: 820px) {
+  .site-header .inner { padding-right: 20px; }
+  .nav-toggle { display: block; }
+  .main-nav { display: none; position: absolute; top: 115px; left: 0; right: 0; background: var(--green-header); flex-direction: column; gap: 0; padding: 12px 20px 20px; }
+  .main-nav.open { display: flex; }
+  .main-nav a { padding: 12px 0; }
+  .hero h1 { font-size: 32px; }
+  .section-title { font-size: 30px; }
+}
+@media (max-width: 640px) {
+  .grid-cards, .grid-results { grid-template-columns: 1fr; }
+  .search-box { flex-direction: column; height: auto; }
+  .search-field { width: 100%; padding: 8px 12px; }
+  .search-divider { width: 100%; height: 1px; }
+  .btn-search { width: 100%; height: 48px; }
+  .days { grid-template-columns: repeat(4, 1fr); }
+  .slots { grid-template-columns: repeat(3, 1fr); }
+  .form-grid, .pay-methods { grid-template-columns: 1fr; }
+  .profile-head { flex-direction: column; text-align: center; }
+  .brand .name { font-size: 26px; }
+}
+
+.brand.no-logo .name { margin-left: 20px; }
+
+.hero.no-photo h1 { color: #fff; }
+.hero > .hero-video { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; filter: grayscale(1); }
+.video-wrap { position: relative; aspect-ratio: 16 / 9; border-radius: 10px; overflow: hidden; background: #000; }
+.video-wrap iframe, .video-wrap video { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+
+
+/* ---------- Autenticación ---------- */
+.header-right { display: flex; align-items: center; gap: 28px; }
+.mobile-only { display: none; }
+.auth-area { display: flex; align-items: center; gap: 10px; }
+.btn-auth { font-size: 14px; font-weight: 600; padding: 9px 16px; border-radius: 8px; white-space: nowrap; transition: filter .2s, background .2s; }
+.btn-auth.ghost { color: #fff; border: 1px solid rgba(255,255,255,.45); }
+.btn-auth.ghost:hover { background: rgba(255,255,255,.1); }
+.btn-auth.solid { background: var(--coral); color: #fff; border: 1px solid var(--coral); }
+.btn-auth.solid:hover { filter: brightness(.94); }
+.user-menu { position: relative; }
+.user-btn { display: flex; align-items: center; gap: 8px; background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.25); color: #fff; border-radius: 24px; padding: 5px 12px 5px 5px; cursor: pointer; font-size: 14px; font-weight: 500; }
+.avatar-sm { width: 30px; height: 30px; border-radius: 10px; background: var(--coral); color: #fff; display: flex; align-items: center; justify-content: center; font-size: 12px; font-weight: 600; }
+.user-dd { display: none; position: absolute; right: 0; top: calc(100% + 8px); background: #fff; border: 1px solid var(--line); border-radius: 10px; min-width: 210px; box-shadow: 0 10px 30px rgba(0,0,0,.18); overflow: hidden; z-index: 50; }
+.user-dd.open { display: block; }
+.user-dd a, .user-dd button { display: block; width: 100%; text-align: left; padding: 12px 16px; font-size: 14px; color: var(--ink); background: #fff; border: 0; cursor: pointer; }
+.user-dd a:hover, .user-dd button:hover { background: var(--mint); }
+.auth-card { max-width: 440px; margin: 0 auto; border: 1px solid var(--line); border-radius: 18px; padding: 34px; background: #fff; }
+.auth-card.wide { max-width: 700px; }
+.auth-card h1 { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -.01em; color: var(--green-heading); margin: 0 0 6px; }
+.auth-card .field { margin-bottom: 14px; }
+.auth-card .form-grid .field { margin-bottom: 0; }
+.auth-alt { text-align: center; font-size: 14px; color: var(--muted); margin: 20px 0 0; }
+.auth-alt a { color: var(--accent); font-weight: 600; }
+.tabs { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; background: var(--mint); padding: 4px; border-radius: 10px; margin: 14px 0; }
+.tab { border: 0; background: transparent; padding: 10px; border-radius: 8px; font-size: 14px; font-weight: 600; color: var(--muted); cursor: pointer; }
+.tab.active { background: #fff; color: var(--btn); box-shadow: 0 1px 3px rgba(0,0,0,.12); }
+.field select, .field textarea { width: 100%; padding: 12px; border: 1px solid var(--line); border-radius: 8px; font-size: 14px; outline: 0; background: #fff; font-family: inherit; }
+.field textarea { min-height: 96px; resize: vertical; }
+.field select:focus, .field textarea:focus { border-color: var(--accent); box-shadow: 0 0 0 3px rgba(31,138,112,.15); }
+.field.invalid select, .field.invalid textarea { border-color: #c0392b; }
+.check-row { display: flex; gap: 8px; align-items: flex-start; font-size: 13px; color: var(--muted); margin: 18px 0 4px; }
+.form-err { color: #c0392b; font-size: 13px; margin: 8px 0 12px; min-height: 16px; }
+.booking { display: flex; justify-content: space-between; align-items: center; gap: 12px; padding: 14px 0; border-top: 1px solid var(--line); flex-wrap: wrap; }
+.booking:first-of-type { border-top: 0; }
+.booking-side { display: flex; align-items: center; gap: 10px; }
+.status { font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 12px; }
+.status.confirmada { background: #dff3ea; color: #15693f; }
+.status.cancelada { background: #fbe3df; color: #a5301f; }
+.account-grid { display: grid; grid-template-columns: 360px 1fr; gap: 32px; align-items: start; }
+.photo-row { display: flex; gap: 16px; align-items: center; margin-bottom: 16px; }
+.notice { background: var(--mint); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; font-size: 13px; color: var(--muted); line-height: 1.5; }
+.page-title { font-family: "Space Grotesk", sans-serif; font-weight: 600; font-size: 28px; letter-spacing: -.01em; color: var(--green-heading); margin: 0 0 24px; }
+@media (max-width: 1180px) { .main-nav { gap: 18px; font-size: 14px; } .btn-auth { padding: 8px 12px; } .user-name { display: none; } .header-right { gap: 16px; } }
+@media (max-width: 1000px) { .account-grid { grid-template-columns: 1fr; } }
+@media (max-width: 820px) { .nav-toggle { margin-left: auto; } .header-right { gap: 0; } .auth-area { display: none; } .mobile-only { display: block; } .auth-card { padding: 22px; } }
+</style>
+</head>
+<body>
+<div id="app"></div>
+<script>
+/* FastFit - datos de ejemplo.
+   Foto de perfil:  img: "images/nombre.png"
+   Video de perfil: video: "images/nombre.mp4"  (o un link de YouTube: video: "https://youtu.be/XXXXXXXXXXX")
+   Si dejas img o video vacío ("") simplemente no se muestra. */
+const CATEGORIES = [
+  { key: "Personal Trainers", role: "Personal Trainer" },
+  { key: "Nutricionistas", role: "Nutricionista" },
+  { key: "Fisioterapeutas", role: "Fisioterapeuta" },
+  { key: "Chefs Privados", role: "Chef Privado" },
+  { key: "Psicólogos Deportivos", role: "Psicólogo Deportivo" },
+];
+
+const DISTRICTS = ["San Borja", "Miraflores", "San Isidro", "Surco", "La Molina", "Barranco", "Jesús María", "Magdalena"];
+
+const PROS = [
+  { id: "bertha-ruiz", name: "Bertha Ruiz", cat: "Personal Trainers", rating: 4.9, reviews: 128, price: 80, zone: "San Borja", img: "images/bertha-ruiz.png", video: "",
+    bio: "Entrenadora personal enfocada en fuerza y tonificación. Sesiones a domicilio, en gimnasio o al aire libre con planes adaptados a tu nivel.",
+    services: ["Fuerza y tonificación", "Pérdida de grasa", "Entrenamiento funcional", "Plan de rutina mensual"] },
+  { id: "macarena-salazar", name: "Macarena Salazar", cat: "Personal Trainers", rating: 4.9, reviews: 98, price: 85, zone: "Miraflores", img: "images/macarena-salazar.png", video: "",
+    bio: "Especialista en movilidad, pilates y entrenamiento de bajo impacto. Acompañamiento constante para que mantengas tus hábitos.",
+    services: ["Pilates", "Movilidad y flexibilidad", "Bajo impacto", "Entrenamiento en pareja"] },
+  { id: "valeria-torres", name: "Valeria Torres", cat: "Personal Trainers", rating: 4.3, reviews: 87, price: 60, zone: "Surco", img: "images/valeria-torres.png", video: "",
+    bio: "Entrenamiento para principiantes y retorno a la actividad física. Rutinas simples, progresivas y sin complicaciones.",
+    services: ["Principiantes", "Cardio", "Rutinas en casa", "Seguimiento semanal"] },
+  { id: "andrea-paredes", name: "Andrea Paredes", cat: "Nutricionistas", rating: 4.8, reviews: 74, price: 90, zone: "San Isidro", img: "",
+    bio: "Nutricionista clínica y deportiva. Planes alimenticios personalizados con seguimiento quincenal.",
+    services: ["Plan alimenticio", "Nutrición deportiva", "Control de peso", "Lista de compras"] },
+  { id: "luis-cardenas", name: "Luis Cárdenas", cat: "Nutricionistas", rating: 4.6, reviews: 52, price: 75, zone: "La Molina", img: "",
+    bio: "Enfoque en reeducación alimentaria y ganancia de masa muscular sin dietas extremas.",
+    services: ["Reeducación alimentaria", "Ganancia muscular", "Consulta online"] },
+  { id: "carlos-mendoza", name: "Carlos Mendoza", cat: "Fisioterapeutas", rating: 4.9, reviews: 110, price: 110, zone: "San Borja", img: "",
+    bio: "Fisioterapeuta deportivo. Rehabilitación de lesiones, prevención y terapia manual.",
+    services: ["Rehabilitación", "Terapia manual", "Prevención de lesiones", "Punción seca"] },
+  { id: "diana-quispe", name: "Diana Quispe", cat: "Fisioterapeutas", rating: 4.5, reviews: 63, price: 95, zone: "Jesús María", img: "",
+    bio: "Recuperación postoperatoria y tratamiento de dolor lumbar y cervical.",
+    services: ["Dolor lumbar", "Postoperatorio", "Ejercicio terapéutico"] },
+  { id: "rodrigo-vega", name: "Rodrigo Vega", cat: "Chefs Privados", rating: 4.8, reviews: 41, price: 150, zone: "Barranco", img: "",
+    bio: "Chef privado para meal prep semanal y cenas saludables en tu casa.",
+    services: ["Meal prep semanal", "Cenas privadas", "Menús fit", "Clases de cocina"] },
+  { id: "sofia-lazo", name: "Sofía Lazo", cat: "Chefs Privados", rating: 4.7, reviews: 36, price: 130, zone: "Magdalena", img: "",
+    bio: "Cocina saludable y peruana ligera. Menús adaptados a tus objetivos y restricciones.",
+    services: ["Cocina saludable", "Menús personalizados", "Eventos pequeños"] },
+  { id: "martin-rios", name: "Martín Ríos", cat: "Psicólogos Deportivos", rating: 4.9, reviews: 58, price: 100, zone: "Miraflores", img: "",
+    bio: "Psicología del rendimiento: motivación, manejo de la presión y constancia en el entrenamiento.",
+    services: ["Motivación", "Manejo de ansiedad competitiva", "Hábitos y constancia"] },
+  { id: "paola-nunez", name: "Paola Núñez", cat: "Psicólogos Deportivos", rating: 4.6, reviews: 33, price: 90, zone: "San Isidro", img: "",
+    bio: "Acompañamiento a deportistas amateurs y profesionales en objetivos y equilibrio mental.",
+    services: ["Establecimiento de metas", "Mindfulness deportivo", "Sesiones online"] },
+];
+
+const REVIEWS = [
+  { who: "Camila R.", text: "Puntual, profesional y muy atenta a mis objetivos. 100% recomendada." },
+  { who: "Jorge P.", text: "Las sesiones son dinámicas y notas el progreso desde la segunda semana." },
+  { who: "Lucía M.", text: "Muy buena comunicación y flexibilidad con los horarios." },
+];
+
+</script>
+<script>
+const PAGE_HTML = {
+  home: `<main>
+    <section class="hero"><video class="hero-video" autoplay muted loop playsinline preload="auto"><source src="images/hero.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+      <h1>Encuentra un profesional que se adapte a tus objetivos</h1>
+      <p class="sub">Personal trainers, nutricionistas, fisioterapeutas y chefs verificados en Lima Metropolitana</p>
+      <div id="search-slot"></div>
+      <div style="height:5px"></div>
+    </section>
+
+    <section class="chips-bar" aria-label="Categorías">
+      <div class="container"><div class="chips" id="chips"></div></div>
+    </section>
+
+    <section class="section" id="profesionales">
+      <div class="container">
+        <h2 class="section-title">Profesionales Destacados:</h2>
+        <div class="grid-cards" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title">Cómo funciona:</h2>
+        <div class="steps">
+          <div class="step"><div class="num">01</div><h3>Busca</h3><p>Elige el tipo de profesional y tu zona en Lima Metropolitana.</p></div>
+          <div class="step"><div class="num">02</div><h3>Reserva</h3><p>Revisa perfiles, reseñas y precios, y agenda el horario que te acomode.</p></div>
+          <div class="step"><div class="num">03</div><h3>Entrena y mejora</h3><p>Paga de forma segura y recibe tu sesión con profesionales verificados.</p></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="para-profesionales">
+      <div class="container">
+        <div class="cta-band">
+          <div><h3>¿Eres profesional del fitness o bienestar?</h3><p>Únete a FastFit y conecta con nuevos clientes en Lima.</p></div>
+          <a class="btn-primary btn-lg btn-coral" href="#/registro?tipo=pro">Crear cuenta profesional</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ayuda">
+      <div class="container faq">
+        <h2 class="section-title">Ayuda:</h2>
+        <details><summary>¿Los profesionales están verificados?</summary><p>Sí. Validamos la identidad y credenciales de cada profesional antes de publicar su perfil.</p></details>
+        <details><summary>¿Puedo cancelar una reserva?</summary><p>Puedes cancelar sin costo hasta 24 horas antes de tu sesión.</p></details>
+        <details><summary>¿Qué métodos de pago aceptan?</summary><p>Tarjeta de crédito/débito, Yape y Plin.</p></details>
+      </div>
+    </section>
+  </main>`,
+  buscar: `<main>
+    <section class="hero hero-compact"><video class="hero-video" autoplay muted loop playsinline preload="auto"><source src="images/hero.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+      <h1>Explora profesionales en Lima</h1>
+      <div id="search-slot"></div>
+    </section>
+
+    <section class="chips-bar" aria-label="Categorías">
+      <div class="container"><div class="chips" id="chips"></div></div>
+    </section>
+
+    <div class="container">
+      <div class="results-layout">
+        <aside class="filters" aria-label="Filtros">
+          <h3>Filtros</h3>
+          <div class="filter-group">
+            <label for="f-price">Precio máximo por sesión</label>
+            <input type="range" id="f-price" min="50" max="200" step="5" value="200">
+            <div class="range-val" id="f-price-val">Hasta S/ 200</div>
+          </div>
+          <div class="filter-group">
+            <label for="f-rating">Calificación mínima</label>
+            <select id="f-rating">
+              <option value="0">Todas</option>
+              <option value="4">4.0 ★ o más</option>
+              <option value="4.5">4.5 ★ o más</option>
+              <option value="4.8">4.8 ★ o más</option>
+            </select>
+          </div>
+          <div class="filter-group">
+            <label for="f-sort">Ordenar por</label>
+            <select id="f-sort">
+              <option value="rel">Relevancia</option>
+              <option value="rating">Mejor calificados</option>
+              <option value="price-asc">Precio: menor a mayor</option>
+              <option value="price-desc">Precio: mayor a menor</option>
+            </select>
+          </div>
+          <button type="button" class="btn-primary btn-outline" id="f-reset" style="width:100%">Limpiar filtros</button>
+        </aside>
+
+        <section>
+          <div class="results-head">
+            <h2 id="results-title">Todos los profesionales</h2>
+            <span class="count" id="count"></span>
+          </div>
+          <div class="grid-results" id="results"></div>
+        </section>
+      </div>
+    </div>
+  </main>`,
+  perfil: `<main><div class="container page-pad" id="profile-root"></div></main>`,
+  horario: `<main><div class="container page-pad" id="schedule-root"></div></main>`,
+  checkout: `<main><div class="container page-pad" id="checkout-root"></div></main>`,
+  confirmacion: `<main><div class="container page-pad" id="confirm-root"></div></main>`
+};
+
+Object.assign(PAGE_HTML, {
+  login: `<main><div class="container page-pad" id="login-root"></div></main>`,
+  registro: `<main><div class="container page-pad" id="registro-root"></div></main>`,
+  cuenta: `<main><div class="container page-pad" id="cuenta-root"></div></main>`,
+  panel: `<main><div class="container page-pad" id="panel-root"></div></main>`
+});
+/* FastFit - lógica de la web (HTML/CSS/JS puro, compatible con GitHub Pages) */
+(function () {
+  "use strict";
+
+  /* ---------- Utilidades ---------- */
+  const $ = (sel, root = document) => root.querySelector(sel);
+  const $$ = (sel, root = document) => Array.from(root.querySelectorAll(sel));
+  let params = new URLSearchParams("");
+  const norm = (s) => (s || "").toString().toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "").trim();
+  const initials = (name) => name.split(" ").map((w) => w[0]).slice(0, 2).join("").toUpperCase();
+  const money = (n) => "S/ " + Number(n).toFixed(n % 1 ? 2 : 0);
+  const roleOf = (p) => (CATEGORIES.find((c) => c.key === p.cat) || {}).role || p.cat;
+  const getPro = (id) => PROS.find((p) => p.id === id);
+  const store = {
+    get: () => { try { return JSON.parse(sessionStorage.getItem("fastfit_booking") || "null"); } catch (e) { return null; } },
+    set: (v) => { try { sessionStorage.setItem("fastfit_booking", JSON.stringify(v)); } catch (e) {} },
+    clear: () => { try { sessionStorage.removeItem("fastfit_booking"); } catch (e) {} },
+  };
+  const iso = (d) => d.getFullYear() + "-" + String(d.getMonth() + 1).padStart(2, "0") + "-" + String(d.getDate()).padStart(2, "0");
+  const longDate = (isoStr) => {
+    const [y, m, d] = isoStr.split("-").map(Number);
+    const s = new Date(y, m - 1, d).toLocaleDateString("es-PE", { weekday: "long", day: "numeric", month: "long" });
+    return s.charAt(0).toUpperCase() + s.slice(1);
+  };
+  const hash = (str) => { let h = 0; for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0; return h; };
+  function toast(msg) {
+    const t = document.createElement("div");
+    t.className = "toast"; t.textContent = msg; document.body.appendChild(t);
+    setTimeout(() => t.remove(), 2600);
+  }
+
+  /* ---------- Cuentas y sesión (simulado en el navegador con localStorage) ---------- */
+  const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/;
+  const clean = (t) => (t || "").toString().replace(/[<>"`\\]/g, "").replace(/\s+/g, " ").trim();
+  const pad2 = (n) => String(n).padStart(2, "0");
+  const LS = {
+    get(k, d) { try { const v = JSON.parse(localStorage.getItem(k)); return v === null || v === undefined ? d : v; } catch (e) { return d; } },
+    set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); return true; } catch (e) { toast("No se pudo guardar (almacenamiento lleno o bloqueado)"); return false; } },
+    del(k) { try { localStorage.removeItem(k); } catch (e) {} },
+  };
+  const auth = {
+    users() { return LS.get("fastfit_users", []); },
+    saveUsers(u) { return LS.set("fastfit_users", u); },
+    current() { const e = LS.get("fastfit_session", null); return e ? (this.users().find((u) => u.email === e) || null) : null; },
+    login(email) { LS.set("fastfit_session", email); },
+    logout() { LS.del("fastfit_session"); },
+  };
+  async function sha(str) {
+    try {
+      const buf = await crypto.subtle.digest("SHA-256", new TextEncoder().encode("fastfit:" + str));
+      return Array.from(new Uint8Array(buf)).map((b) => b.toString(16).padStart(2, "0")).join("");
+    } catch (e) { return "h" + hash("fastfit:" + str); }
+  }
+  function fieldErr(id, msg) {
+    const el = $("#" + id); const f = el.closest(".field"); f.classList.toggle("invalid", !!msg);
+    const e = $(".err", f); if (e) e.textContent = msg || "";
+    return !msg;
+  }
+  function loadCustomPros() {
+    auth.users().filter((u) => u.role === "pro" && u.pro).forEach((u) => { if (!PROS.some((p) => p.id === u.pro.id)) PROS.push(u.pro); });
+  }
+  function syncPro(pro) {
+    const i = PROS.findIndex((p) => p.id === pro.id);
+    if (i >= 0) PROS[i] = pro; else PROS.push(pro);
+  }
+  function safeNext() { const n = params.get("next") || ""; return /^[a-z-]+$/.test(n) ? n : ""; }
+  const ratingText = (p, long) => p.reviews ? `★ ${p.rating.toFixed(1)} (${p.reviews}${long ? " reseñas" : ""})` : "★ Nuevo";
+  const bookings = () => LS.get("fastfit_bookings", []);
+
+  /* ---------- Componentes compartidos ---------- */
+  function renderHeader(active) {
+    const links = [
+      ["Explorar", "#/buscar", "buscar"],
+      ["Cómo funciona", "#/como-funciona", ""],
+      ["Para profesionales", "#/para-profesionales", ""],
+      ["Ayuda", "#/ayuda", ""],
+    ];
+    const cur = auth.current();
+    const isPro = !!cur && cur.role === "pro";
+    const acctHref = isPro ? "#/panel" : "#/cuenta";
+    const acctLabel = isPro ? "Mi panel" : "Mis reservas";
+    const authArea = cur
+      ? `<div class="user-menu"><button class="user-btn" id="user-btn" type="button" aria-haspopup="true"><span class="avatar-sm">${initials(cur.name)}</span><span class="user-name">${cur.name.split(" ")[0]}</span><span aria-hidden="true">▾</span></button><div class="user-dd" id="user-dd"><a href="${acctHref}">${acctLabel}</a>${isPro ? `<a href="#/perfil?id=${cur.proId}">Mi perfil público</a>` : ""}<button type="button" data-logout>Cerrar sesión</button></div></div>`
+      : '<a class="btn-auth ghost" href="#/login">Iniciar sesión</a><a class="btn-auth solid" href="#/registro">Registrarse</a>';
+    const mobileAuth = cur
+      ? `<a class="mobile-only" href="${acctHref}">${acctLabel}</a><a class="mobile-only" href="#/" data-logout>Cerrar sesión</a>`
+      : '<a class="mobile-only" href="#/login">Iniciar sesión</a><a class="mobile-only" href="#/registro">Registrarse</a>';
+    $("#site-header").outerHTML =
+      '<header class="site-header"><div class="inner">' +
+      '<a class="brand" href="#/" aria-label="FastFit inicio">' +
+      '<img class="logo" src="images/logo.png" alt="" onerror="this.style.display=\'none\';this.parentNode.classList.add(\'no-logo\')">' +
+      '<span class="name">FastFit</span></a>' +
+      '<button class="nav-toggle" aria-label="Abrir menú">☰</button>' +
+      '<div class="header-right"><nav class="main-nav">' +
+      links.map((l) => `<a href="${l[1]}" class="${l[2] && l[2] === active ? "active" : ""}">${l[0]}</a>`).join("") +
+      mobileAuth + '</nav><div class="auth-area">' + authArea + "</div></div></div></header>";
+    $(".nav-toggle").addEventListener("click", () => $(".main-nav").classList.toggle("open"));
+  }
+
+  function renderFooter() {
+    const el = $("#site-footer");
+    if (!el) return;
+    el.outerHTML = '<footer class="site-footer"><div class="container"><span><b>FastFit</b> · Marketplace de servicios fitness y bienestar en Lima Metropolitana</span><span>© ' + new Date().getFullYear() + " FastFit. Todos los derechos reservados.</span></div></footer>";
+  }
+
+  function videoHTML(url) {
+    const yt = url.match(/(?:youtu\.be\/|youtube\.com\/(?:watch\?v=|embed\/|shorts\/))([\w-]{11})/);
+    if (yt) return `<div class="video-wrap"><iframe src="https://www.youtube.com/embed/${yt[1]}" title="Video de presentación" allowfullscreen loading="lazy"></iframe></div>`;
+    return `<div class="video-wrap"><video src="${url}" controls playsinline preload="metadata"></video></div>`;
+  }
+
+  function avatar(p, large) {
+    return `<div class="avatar${large ? " lg" : ""}">${initials(p.name)}${p.img ? `<img src="${p.img}" alt="${p.name}" onerror="this.remove()">` : ""}</div>`;
+  }
+
+  function card(p, inZone) {
+    return `<article class="card">
+      ${avatar(p)}
+      <h3 class="name">${p.name}</h3>
+      <p class="role">${roleOf(p)}</p>
+      <p class="rating">${ratingText(p)}</p>
+      ${inZone ? '<span class="zone-tag">En tu zona</span>' : ""}
+      <div class="foot"><span class="price">${money(p.price)} / sesión</span>
+      <a class="btn-primary" href="#/perfil?id=${p.id}">Ver perfil</a></div></article>`;
+  }
+
+  function searchBox(cat, loc) {
+    const opts = CATEGORIES.map((c) => `<option value="${c.key}" ${c.key === cat ? "selected" : ""}>${c.role}</option>`).join("");
+    return `<form class="search-box" id="search-form" role="search">
+      <div class="search-field"><label for="sb-cat">Qué necesitas</label><select id="sb-cat">${opts}</select></div>
+      <div class="search-divider"></div>
+      <div class="search-field"><label for="sb-loc">Ubicación</label>
+        <input id="sb-loc" list="districts" value="${loc}" autocomplete="off">
+        <datalist id="districts">${DISTRICTS.map((d) => `<option value="${d}, Lima">`).join("")}</datalist></div>
+      <button class="btn-search" type="submit">Buscar</button></form>`;
+  }
+
+  function bindSearch() {
+    $("#search-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const q = new URLSearchParams({ cat: $("#sb-cat").value, loc: $("#sb-loc").value.trim() });
+      location.href = "#/buscar?" + q.toString();
+    });
+  }
+
+  function chipsHTML(active, withAll) {
+    const all = withAll ? `<button class="chip ${active === "" ? "active" : ""}" data-cat="">Todos</button>` : "";
+    return all + CATEGORIES.map((c) => `<button class="chip ${active === c.key ? "active" : ""}" data-cat="${c.key}">${c.key}</button>`).join("");
+  }
+
+  /* ---------- HOME ---------- */
+  function initHome() {
+    renderHeader("");
+    $("#search-slot").innerHTML = searchBox("Personal Trainers", "San Borja, Lima");
+    bindSearch();
+    $("#chips").innerHTML = chipsHTML("", false);
+    $$("#chips .chip").forEach((b) => b.addEventListener("click", () => {
+      location.href = "#/buscar?cat=" + encodeURIComponent(b.dataset.cat);
+    }));
+    $("#featured").innerHTML = PROS.slice(0, 3).map((p) => card(p)).join("");
+  }
+
+  /* ---------- BUSCAR ---------- */
+  function initBuscar() {
+    renderHeader("buscar");
+    const state = {
+      cat: params.get("cat") || "",
+      loc: params.get("loc") || "San Borja, Lima",
+      max: 200, minRating: 0, sort: "rel",
+    };
+    if (state.cat && !CATEGORIES.some((c) => c.key === state.cat)) state.cat = "";
+
+    $("#search-slot").innerHTML = searchBox(state.cat || "Personal Trainers", state.loc);
+    bindSearch();
+
+    function paintChips() {
+      $("#chips").innerHTML = chipsHTML(state.cat, true);
+      $$("#chips .chip").forEach((b) => b.addEventListener("click", () => { state.cat = b.dataset.cat; paintChips(); paintResults(); }));
+    }
+
+    function paintResults() {
+      const locPart = norm(state.loc.split(",")[0]);
+      let list = PROS.filter((p) => (!state.cat || p.cat === state.cat) && p.price <= state.max && p.rating >= state.minRating)
+        .map((p) => ({ p, zone: !!locPart && norm(p.zone).includes(locPart) }));
+      list.sort((a, b) => {
+        if (state.sort === "rating") return b.p.rating - a.p.rating;
+        if (state.sort === "price-asc") return a.p.price - b.p.price;
+        if (state.sort === "price-desc") return b.p.price - a.p.price;
+        return (b.zone - a.zone) || (b.p.rating - a.p.rating);
+      });
+      $("#count").textContent = list.length + (list.length === 1 ? " profesional encontrado" : " profesionales encontrados");
+      $("#results-title").textContent = state.cat || "Todos los profesionales";
+      $("#results").innerHTML = list.length
+        ? list.map((x) => card(x.p, x.zone)).join("")
+        : '<div class="empty"><b>No encontramos resultados</b><br>Prueba ampliando el precio o quitando algún filtro.</div>';
+    }
+
+    $("#f-price").addEventListener("input", (e) => { state.max = +e.target.value; $("#f-price-val").textContent = "Hasta " + money(state.max); paintResults(); });
+    $("#f-rating").addEventListener("change", (e) => { state.minRating = +e.target.value; paintResults(); });
+    $("#f-sort").addEventListener("change", (e) => { state.sort = e.target.value; paintResults(); });
+    $("#f-reset").addEventListener("click", () => {
+      state.max = 200; state.minRating = 0; state.sort = "rel";
+      $("#f-price").value = 200; $("#f-price-val").textContent = "Hasta S/ 200";
+      $("#f-rating").value = 0; $("#f-sort").value = "rel"; paintResults();
+    });
+
+    paintChips(); paintResults();
+  }
+
+  /* ---------- PERFIL ---------- */
+  function initPerfil() {
+    renderHeader("buscar");
+    const p = getPro(params.get("id"));
+    const root = $("#profile-root");
+    if (!p) {
+      root.innerHTML = '<div class="empty">Profesional no encontrado. <a href="#/buscar" style="color:var(--accent);font-weight:600">Volver a explorar</a></div>';
+      return;
+    }
+    document.title = p.name + " · FastFit";
+    root.innerHTML = `
+      <div class="breadcrumb"><a href="#/">Inicio</a> / <a href="#/buscar?cat=${encodeURIComponent(p.cat)}">${p.cat}</a> / ${p.name}</div>
+      <div class="two-col">
+        <div>
+          <div class="panel"><div class="profile-head">${avatar(p, true)}
+            <div><h1>${p.name}</h1><div class="role">${roleOf(p)}</div>
+            <div class="rating">${ratingText(p, true)} · ${p.zone}, Lima</div></div></div></div>
+          <div class="panel"><h2>Sobre mí</h2><p style="line-height:1.6;color:var(--muted);margin:0">${p.bio}</p></div>
+          ${p.video ? '<div class="panel"><h2>Video de presentación</h2>' + videoHTML(p.video) + "</div>" : ""}
+          <div class="panel"><h2>Servicios</h2><div class="tags">${p.services.map((s) => `<span class="tag">${s}</span>`).join("")}</div></div>
+          <div class="panel"><h2>Reseñas</h2>${!p.reviews ? '<p class="muted" style="margin:0">Aún no tiene reseñas.</p>' : REVIEWS.map((r) => `<div class="review"><b>${r.who} <span>★ 5.0</span></b>${r.text}</div>`).join("")}</div>
+        </div>
+        <aside class="sticky-box"><div class="panel">
+          <p class="price-big">${money(p.price)} <span class="muted">/ sesión</span></p>
+          <p class="muted" style="margin:0 0 18px">Sesión de 60 min · Cancelación gratuita hasta 24 h antes</p>
+          <a class="btn-primary btn-coral btn-lg" style="display:block;text-align:center" href="#/horario?id=${p.id}">Reservar sesión</a>
+        </div></aside>
+      </div>`;
+  }
+
+  /* ---------- HORARIO ---------- */
+  function initHorario() {
+    renderHeader("buscar");
+    const p = getPro(params.get("id"));
+    const root = $("#schedule-root");
+    if (!p) { root.innerHTML = '<div class="empty">Profesional no encontrado. <a href="#/buscar" style="color:var(--accent);font-weight:600">Volver a explorar</a></div>'; return; }
+
+    const HOURS = [7, 8, 9, 10, 11, 12, 15, 16, 17, 18, 19, 20];
+    const today = new Date();
+    const days = Array.from({ length: 7 }, (_, i) => { const d = new Date(today.getFullYear(), today.getMonth(), today.getDate() + i); return d; });
+    let selDay = 0, selTime = null;
+
+    function isFree(d, h) {
+      if (iso(d) === iso(today) && h <= today.getHours()) return false;
+      if (bookings().some((x) => x.proId === p.id && x.date === iso(d) && x.hour === h && x.status === "confirmada")) return false;
+      if (p.owner) return true; // profesionales registrados: libres salvo reservas
+      return hash(p.id + iso(d) + h) % 4 !== 0; // disponibilidad de ejemplo
+    }
+
+    root.innerHTML = `
+      <div class="breadcrumb"><a href="#/">Inicio</a> / <a href="#/perfil?id=${p.id}">${p.name}</a> / Selecciona horario</div>
+      <div class="two-col">
+        <div class="panel"><h2>Elige día y hora</h2><div class="days" id="days"></div><h3>Horarios disponibles</h3><div class="slots" id="slots"></div></div>
+        <aside class="sticky-box"><div class="panel">
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:16px">${avatar(p)}<div><b>${p.name}</b><div class="muted">${roleOf(p)}</div></div></div>
+          <div class="summary-row"><span>Fecha</span><span id="sum-date">—</span></div>
+          <div class="summary-row"><span>Hora</span><span id="sum-time">—</span></div>
+          <div class="summary-row"><span>Duración</span><span>60 min</span></div>
+          <div class="summary-row total"><span>Total</span><span>${money(p.price)}</span></div>
+          <button class="btn-primary btn-coral btn-lg" id="go" style="width:100%;margin-top:16px" disabled>Continuar al pago</button>
+        </div></aside>
+      </div>`;
+
+    function paintDays() {
+      $("#days").innerHTML = days.map((d, i) => `<button class="day ${i === selDay ? "active" : ""}" data-i="${i}"><small>${d.toLocaleDateString("es-PE", { weekday: "short" }).replace(".", "")}</small><strong>${d.getDate()}</strong></button>`).join("");
+      $$("#days .day").forEach((b) => b.addEventListener("click", () => { selDay = +b.dataset.i; selTime = null; paintDays(); paintSlots(); paintSummary(); }));
+    }
+    function paintSlots() {
+      $("#slots").innerHTML = HOURS.map((h) => {
+        const free = isFree(days[selDay], h);
+        return `<button class="slot ${selTime === h ? "active" : ""}" data-h="${h}" ${free ? "" : "disabled"}>${String(h).padStart(2, "0")}:00</button>`;
+      }).join("");
+      $$("#slots .slot:not([disabled])").forEach((b) => b.addEventListener("click", () => { selTime = +b.dataset.h; paintSlots(); paintSummary(); }));
+    }
+    function paintSummary() {
+      $("#sum-date").textContent = longDate(iso(days[selDay]));
+      $("#sum-time").textContent = selTime === null ? "—" : String(selTime).padStart(2, "0") + ":00";
+      $("#go").disabled = selTime === null;
+    }
+    $("#go").addEventListener("click", () => {
+      if (selTime === null) return;
+      store.set({ proId: p.id, date: iso(days[selDay]), hour: selTime });
+      location.href = "#/checkout";
+    });
+    paintDays(); paintSlots(); paintSummary();
+  }
+
+  /* ---------- CHECKOUT ---------- */
+  function initCheckout() {
+    renderHeader("buscar");
+    const b = store.get();
+    const p = b && getPro(b.proId);
+    const root = $("#checkout-root");
+    if (!b || !p) { root.innerHTML = '<div class="empty">No hay una reserva en curso. <a href="#/buscar" style="color:var(--accent);font-weight:600">Buscar profesional</a></div>'; return; }
+
+    const fee = Math.round(p.price * 0.1 * 100) / 100;
+    const total = p.price + fee;
+    let method = "card";
+
+    root.innerHTML = `
+      <div class="breadcrumb"><a href="#/">Inicio</a> / <a href="#/horario?id=${p.id}">Horario</a> / Pago</div>
+      <div class="two-col">
+        <form id="pay-form" class="panel" novalidate>
+          ${auth.current() ? "" : '<p class="notice" style="margin:0 0 18px">¿Ya tienes cuenta? <a href="#/login?next=checkout" style="color:var(--accent);font-weight:600">Inicia sesión</a> para guardar tus reservas.</p>'}
+          <h2>Tus datos</h2>
+          <div class="form-grid">
+            <div class="field full"><label for="f-name">Nombre completo</label><input id="f-name" autocomplete="name"><div class="err"></div></div>
+            <div class="field"><label for="f-email">Correo electrónico</label><input id="f-email" type="email" autocomplete="email"><div class="err"></div></div>
+            <div class="field"><label for="f-phone">Celular</label><input id="f-phone" inputmode="numeric" maxlength="9" placeholder="9XXXXXXXX" autocomplete="tel"><div class="err"></div></div>
+          </div>
+          <h2 style="margin-top:28px">Método de pago</h2>
+          <div class="pay-methods">
+            <button type="button" class="pay-method active" data-m="card">Tarjeta</button>
+            <button type="button" class="pay-method" data-m="yape">Yape</button>
+            <button type="button" class="pay-method" data-m="plin">Plin</button>
+          </div>
+          <div id="card-fields" class="form-grid">
+            <div class="field full"><label for="f-card">Número de tarjeta</label><input id="f-card" inputmode="numeric" maxlength="19" placeholder="0000 0000 0000 0000" autocomplete="cc-number"><div class="err"></div></div>
+            <div class="field"><label for="f-exp">Vencimiento</label><input id="f-exp" maxlength="5" placeholder="MM/AA" autocomplete="cc-exp"><div class="err"></div></div>
+            <div class="field"><label for="f-cvv">CVV</label><input id="f-cvv" inputmode="numeric" maxlength="4" placeholder="123" autocomplete="cc-csc"><div class="err"></div></div>
+          </div>
+          <p id="wallet-note" class="muted" style="display:none;line-height:1.5">Al confirmar te mostraremos las instrucciones para completar el pago desde tu app.</p>
+          <button class="btn-primary btn-coral btn-lg" type="submit" style="width:100%;margin-top:24px">Pagar ${money(total)}</button>
+        </form>
+        <aside class="sticky-box"><div class="panel">
+          <h2>Resumen</h2>
+          <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">${avatar(p)}<div><b>${p.name}</b><div class="muted">${roleOf(p)}</div></div></div>
+          <div class="summary-row"><span>Fecha</span><span>${longDate(b.date)}</span></div>
+          <div class="summary-row"><span>Hora</span><span>${String(b.hour).padStart(2, "0")}:00</span></div>
+          <div class="summary-row"><span>Sesión (60 min)</span><span>${money(p.price)}</span></div>
+          <div class="summary-row"><span>Tarifa de servicio (10%)</span><span>${money(fee)}</span></div>
+          <div class="summary-row total"><span>Total</span><span>${money(total)}</span></div>
+        </div></aside>
+      </div>`;
+
+    const acct = auth.current();
+    if (acct) { $("#f-name").value = acct.name; $("#f-email").value = acct.email; $("#f-phone").value = acct.phone || ""; }
+    const setErr = (id, msg) => {
+      const f = $("#" + id).closest(".field"); f.classList.toggle("invalid", !!msg); $(".err", f).textContent = msg || "";
+      return !msg;
+    };
+    $$(".pay-method").forEach((btn) => btn.addEventListener("click", () => {
+      method = btn.dataset.m;
+      $$(".pay-method").forEach((x) => x.classList.toggle("active", x === btn));
+      $("#card-fields").style.display = method === "card" ? "grid" : "none";
+      $("#wallet-note").style.display = method === "card" ? "none" : "block";
+    }));
+    $("#f-card").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/\D/g, "").slice(0, 16).replace(/(.{4})/g, "$1 ").trim(); });
+    $("#f-exp").addEventListener("input", (e) => { let v = e.target.value.replace(/\D/g, "").slice(0, 4); if (v.length > 2) v = v.slice(0, 2) + "/" + v.slice(2); e.target.value = v; });
+    $("#f-cvv").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/\D/g, ""); });
+    $("#f-phone").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/\D/g, ""); });
+
+    $("#pay-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = clean($("#f-name").value.trim()), email = $("#f-email").value.trim(), phone = $("#f-phone").value.trim();
+      let ok = true;
+      ok = setErr("f-name", name.length < 3 ? "Ingresa tu nombre completo" : "") && ok;
+      ok = setErr("f-email", /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(email) ? "" : "Ingresa un correo válido") && ok;
+      ok = setErr("f-phone", /^9\d{8}$/.test(phone) ? "" : "Celular de 9 dígitos que empiece con 9") && ok;
+      if (method === "card") {
+        const num = $("#f-card").value.replace(/\s/g, ""), exp = $("#f-exp").value, cvv = $("#f-cvv").value;
+        ok = setErr("f-card", /^\d{16}$/.test(num) ? "" : "Ingresa los 16 dígitos") && ok;
+        const m = exp.match(/^(\d{2})\/(\d{2})$/);
+        const now = new Date();
+        const valid = m && +m[1] >= 1 && +m[1] <= 12 && new Date(2000 + +m[2], +m[1], 0, 23, 59) >= now;
+        ok = setErr("f-exp", valid ? "" : "Fecha inválida o vencida") && ok;
+        ok = setErr("f-cvv", /^\d{3,4}$/.test(cvv) ? "" : "CVV inválido") && ok;
+      }
+      if (!ok) return;
+      // Pago SIMULADO: aquí integrarías tu pasarela (Culqi, Izipay, Niubiz, etc.). No se guardan datos de tarjeta.
+      const code = "FF-" + Math.random().toString(36).slice(2, 8).toUpperCase();
+      const done = { ...b, name, email, phone, method, total, code };
+      store.set(done);
+      const all = bookings(); all.push({ ...done, status: "confirmada", createdAt: Date.now(), userEmail: (auth.current() || {}).email || null });
+      LS.set("fastfit_bookings", all);
+      location.href = "#/confirmacion";
+    });
+  }
+
+  /* ---------- CONFIRMACIÓN ---------- */
+  function initConfirmacion() {
+    renderHeader("");
+    const b = store.get();
+    const p = b && getPro(b.proId);
+    const root = $("#confirm-root");
+    if (!b || !p || !b.code) { root.innerHTML = '<div class="empty">No hay una reserva confirmada. <a href="#/" style="color:var(--accent);font-weight:600">Ir al inicio</a></div>'; return; }
+    const methods = { card: "Tarjeta", yape: "Yape", plin: "Plin" };
+    root.innerHTML = `<div class="confirm-box">
+      <div class="check">✓</div><h1>¡Reserva confirmada!</h1>
+      <p class="muted" style="font-size:15px">Enviamos los detalles a ${b.email}</p>
+      <div class="code">${b.code}</div>
+      <div class="panel">
+        <div style="display:flex;gap:14px;align-items:center;margin-bottom:12px">${avatar(p)}<div><b>${p.name}</b><div class="muted">${roleOf(p)}</div></div></div>
+        <div class="summary-row"><span>Fecha</span><span>${longDate(b.date)}</span></div>
+        <div class="summary-row"><span>Hora</span><span>${String(b.hour).padStart(2, "0")}:00 (60 min)</span></div>
+        <div class="summary-row"><span>Método de pago</span><span>${methods[b.method]}</span></div>
+        <div class="summary-row total"><span>Total</span><span>${money(b.total)}</span></div>
+      </div>
+      <div class="actions">
+        <button class="btn-primary btn-lg btn-outline" id="ics">Agregar al calendario</button>
+        <a class="btn-primary btn-lg btn-coral" id="home" href="#/">Volver al inicio</a>
+      </div></div>`;
+    $("#home").addEventListener("click", () => store.clear());
+    $("#ics").addEventListener("click", () => {
+      const [y, m, d] = b.date.split("-").map(Number);
+      const fmt = (h) => `${y}${String(m).padStart(2, "0")}${String(d).padStart(2, "0")}T${String(h).padStart(2, "0")}0000`;
+      const ics = ["BEGIN:VCALENDAR", "VERSION:2.0", "PRODID:-//FastFit//ES", "BEGIN:VEVENT", "UID:" + b.code + "@fastfit",
+        "DTSTAMP:" + fmt(new Date().getHours()), "DTSTART:" + fmt(b.hour), "DTEND:" + fmt(b.hour + 1),
+        "SUMMARY:Sesión FastFit con " + p.name, "DESCRIPTION:Código de reserva " + b.code, "END:VEVENT", "END:VCALENDAR"].join("\r\n");
+      const a = document.createElement("a");
+      a.href = URL.createObjectURL(new Blob([ics], { type: "text/calendar" }));
+      a.download = "fastfit-" + b.code + ".ics"; a.click(); URL.revokeObjectURL(a.href);
+      toast("Evento descargado");
+    });
+  }
+
+  /* ---------- LOGIN ---------- */
+  function initLogin() {
+    renderHeader("login");
+    if (auth.current()) { location.hash = auth.current().role === "pro" ? "#/panel" : "#/"; return; }
+    const next = safeNext();
+    $("#login-root").innerHTML = `<div class="auth-card">
+      <h1>Iniciar sesión</h1><p class="muted" style="margin:0 0 20px">Accede como usuario o como profesional.</p>
+      <form id="login-form" novalidate>
+        <div class="field"><label for="l-email">Correo electrónico</label><input id="l-email" type="email" autocomplete="email"><div class="err"></div></div>
+        <div class="field"><label for="l-pass">Contraseña</label><input id="l-pass" type="password" autocomplete="current-password"><div class="err"></div></div>
+        <div class="form-err" id="l-err"></div>
+        <button class="btn-primary btn-coral btn-lg" type="submit" style="width:100%">Ingresar</button>
+      </form>
+      <p class="auth-alt">¿No tienes cuenta? <a href="#/registro${next ? "?next=" + next : ""}">Regístrate como usuario</a> o <a href="#/registro?tipo=pro">como profesional</a></p></div>`;
+    $("#login-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const email = $("#l-email").value.trim().toLowerCase(), pass = $("#l-pass").value;
+      let ok = fieldErr("l-email", EMAIL_RE.test(email) ? "" : "Ingresa un correo válido");
+      ok = fieldErr("l-pass", pass ? "" : "Ingresa tu contraseña") && ok;
+      if (!ok) return;
+      const u = auth.users().find((x) => x.email === email);
+      const h = await sha(pass);
+      if (!u || u.passHash !== h) { $("#l-err").textContent = "Correo o contraseña incorrectos."; return; }
+      auth.login(email);
+      location.hash = next ? "#/" + next : (u.role === "pro" ? "#/panel" : "#/");
+    });
+  }
+
+  /* ---------- REGISTRO (usuario o profesional) ---------- */
+  function initRegistro() {
+    renderHeader("registro");
+    if (auth.current()) { location.hash = auth.current().role === "pro" ? "#/panel" : "#/"; return; }
+    let tipo = params.get("tipo") === "pro" ? "pro" : "user";
+    const next = safeNext();
+    const root = $("#registro-root");
+    const vals = {};
+
+    function paint() {
+      const proFields = tipo === "pro" ? `
+        <div class="field"><label for="r-cat">Especialidad</label><select id="r-cat">${CATEGORIES.map((c) => `<option value="${c.key}">${c.role}</option>`).join("")}</select><div class="err"></div></div>
+        <div class="field"><label for="r-zone">Distrito principal</label><select id="r-zone">${DISTRICTS.map((d) => `<option>${d}</option>`).join("")}</select><div class="err"></div></div>
+        <div class="field"><label for="r-price">Tarifa por sesión (S/)</label><input id="r-price" type="number" min="20" max="500" step="5" placeholder="80"><div class="err"></div></div>
+        <div class="field"><label for="r-services">Servicios (separados por coma)</label><input id="r-services" placeholder="Fuerza, Movilidad, Plan mensual"><div class="err"></div></div>
+        <div class="field full"><label for="r-bio">Cuéntanos sobre ti</label><textarea id="r-bio" maxlength="500" placeholder="Experiencia, enfoque de trabajo, certificaciones..."></textarea><div class="err"></div></div>` : "";
+      root.innerHTML = `<div class="auth-card wide"><h1>Crear cuenta</h1>
+        <div class="tabs"><button type="button" class="tab ${tipo === "user" ? "active" : ""}" data-t="user">Soy usuario</button><button type="button" class="tab ${tipo === "pro" ? "active" : ""}" data-t="pro">Soy profesional</button></div>
+        <p class="muted" style="margin:0 0 18px">${tipo === "user" ? "Reserva sesiones con profesionales verificados y gestiona tus reservas." : "Publica tu perfil, recibe reservas y gestiona tu agenda."}</p>
+        <form id="reg-form" novalidate><div class="form-grid">
+          <div class="field full"><label for="r-name">Nombre completo</label><input id="r-name" autocomplete="name"><div class="err"></div></div>
+          <div class="field"><label for="r-email">Correo electrónico</label><input id="r-email" type="email" autocomplete="email"><div class="err"></div></div>
+          <div class="field"><label for="r-phone">Celular</label><input id="r-phone" inputmode="numeric" maxlength="9" placeholder="9XXXXXXXX" autocomplete="tel"><div class="err"></div></div>
+          ${proFields}
+          <div class="field"><label for="r-pass">Contraseña</label><input id="r-pass" type="password" autocomplete="new-password"><div class="err"></div></div>
+          <div class="field"><label for="r-pass2">Repetir contraseña</label><input id="r-pass2" type="password" autocomplete="new-password"><div class="err"></div></div>
+        </div>
+        <label class="check-row"><input type="checkbox" id="r-terms"> <span>Acepto los términos y condiciones y la política de privacidad.</span></label>
+        <div class="form-err" id="r-terms-err"></div>
+        <div class="form-err" id="r-err"></div>
+        <button class="btn-primary btn-coral btn-lg" type="submit" style="width:100%">Crear cuenta</button></form>
+        <p class="auth-alt">¿Ya tienes cuenta? <a href="#/login${next ? "?next=" + next : ""}">Inicia sesión</a></p></div>`;
+      Object.keys(vals).forEach((id) => { const el = document.getElementById(id); if (el) el.value = vals[id]; });
+      $$(".tab").forEach((t) => t.addEventListener("click", () => {
+        $$("#reg-form input:not([type=checkbox]), #reg-form select, #reg-form textarea").forEach((el) => { vals[el.id] = el.value; });
+        tipo = t.dataset.t; paint();
+      }));
+      $("#r-phone").addEventListener("input", (e) => { e.target.value = e.target.value.replace(/\D/g, ""); });
+      $("#reg-form").addEventListener("submit", submit);
+    }
+
+    async function submit(e) {
+      e.preventDefault();
+      const v = (id) => ($("#" + id).value || "").trim();
+      const name = clean(v("r-name")), email = v("r-email").toLowerCase(), phone = v("r-phone");
+      const pass = $("#r-pass").value, pass2 = $("#r-pass2").value;
+      let ok = fieldErr("r-name", name.length < 3 ? "Ingresa tu nombre completo" : "");
+      ok = fieldErr("r-email", EMAIL_RE.test(email) ? "" : "Ingresa un correo válido") && ok;
+      ok = fieldErr("r-phone", /^9\d{8}$/.test(phone) ? "" : "Celular de 9 dígitos que empiece con 9") && ok;
+      ok = fieldErr("r-pass", pass.length >= 8 && /[A-Za-z]/.test(pass) && /\d/.test(pass) ? "" : "Mínimo 8 caracteres, con letras y números") && ok;
+      ok = fieldErr("r-pass2", pass === pass2 ? "" : "Las contraseñas no coinciden") && ok;
+      let cat, zone, price, services, bio;
+      if (tipo === "pro") {
+        cat = v("r-cat"); zone = v("r-zone"); price = Number(v("r-price"));
+        services = clean(v("r-services")).split(",").map((x) => x.trim()).filter(Boolean).slice(0, 8);
+        bio = clean(v("r-bio"));
+        ok = fieldErr("r-price", price >= 20 && price <= 500 ? "" : "Ingresa una tarifa entre S/ 20 y S/ 500") && ok;
+        ok = fieldErr("r-services", services.length ? "" : "Agrega al menos un servicio") && ok;
+        ok = fieldErr("r-bio", bio.length >= 30 ? "" : "Cuéntanos un poco más (mínimo 30 caracteres)") && ok;
+      }
+      $("#r-terms-err").textContent = $("#r-terms").checked ? "" : "Debes aceptar los términos para continuar.";
+      if (!$("#r-terms").checked) ok = false;
+      if (!ok) return;
+      const users = auth.users();
+      if (users.some((u) => u.email === email)) { $("#r-err").textContent = "Ya existe una cuenta con ese correo. Inicia sesión."; return; }
+      const user = { id: "u" + Date.now(), role: tipo, name, email, phone, passHash: await sha(pass), created: Date.now() };
+      if (tipo === "pro") {
+        const slug = norm(name).replace(/[^a-z0-9]+/g, "-").replace(/^-|-$/g, "");
+        user.proId = slug + "-" + Math.random().toString(36).slice(2, 6);
+        user.pro = { id: user.proId, name, cat, rating: 0, reviews: 0, price, zone, img: "", video: "", bio, services, owner: email };
+      }
+      users.push(user);
+      if (!auth.saveUsers(users)) return;
+      if (user.pro) syncPro(user.pro);
+      auth.login(email);
+      toast("¡Cuenta creada! Bienvenido/a a FastFit");
+      location.hash = next ? "#/" + next : (tipo === "pro" ? "#/panel" : "#/");
+    }
+    paint();
+  }
+
+  /* ---------- Reservas (filas reutilizables) ---------- */
+  function bookingRow(b, mode) {
+    const pro = getPro(b.proId);
+    const title = mode === "pro" ? `${b.name} · ${b.phone}` : (pro ? pro.name : "Profesional");
+    const canCancel = mode === "user" && b.status === "confirmada" && b.date >= iso(new Date());
+    return `<div class="booking"><div><b>${title}</b><div class="muted">${longDate(b.date)} · ${pad2(b.hour)}:00 · ${b.code}</div></div>
+      <div class="booking-side"><span class="status ${b.status}">${b.status === "cancelada" ? "Cancelada" : "Confirmada"}</span>${canCancel ? `<button class="btn-primary btn-outline" data-cancel="${b.code}">Cancelar</button>` : ""}</div></div>`;
+  }
+  const sortB = (a, b) => (a.date + pad2(a.hour)).localeCompare(b.date + pad2(b.hour));
+
+  /* ---------- CUENTA DE USUARIO ---------- */
+  function initCuenta() {
+    const cur = auth.current();
+    if (!cur) { location.hash = "#/login?next=cuenta"; return; }
+    if (cur.role === "pro") { location.hash = "#/panel"; return; }
+    renderHeader("cuenta");
+    const root = $("#cuenta-root");
+    function paint() {
+      const mine = bookings().filter((b) => b.userEmail === cur.email || b.email === cur.email).sort(sortB);
+      root.innerHTML = `<h1 class="page-title">Mi cuenta</h1><div class="account-grid">
+        <div class="panel"><h2>Mis datos</h2>
+          <div class="field" style="margin-bottom:14px"><label for="c-name">Nombre completo</label><input id="c-name" value="${cur.name}"><div class="err"></div></div>
+          <div class="field" style="margin-bottom:14px"><label>Correo</label><input value="${cur.email}" disabled></div>
+          <div class="field" style="margin-bottom:14px"><label for="c-phone">Celular</label><input id="c-phone" inputmode="numeric" maxlength="9" value="${cur.phone || ""}"><div class="err"></div></div>
+          <button class="btn-primary btn-lg" id="c-save" style="width:100%">Guardar cambios</button>
+          <button class="btn-primary btn-lg btn-outline" data-logout style="width:100%;margin-top:10px">Cerrar sesión</button></div>
+        <div class="panel"><h2>Mis reservas</h2>${mine.length ? mine.map((b) => bookingRow(b, "user")).join("") : '<p class="muted" style="margin:0">Aún no tienes reservas. <a href="#/buscar" style="color:var(--accent);font-weight:600">Explora profesionales</a></p>'}</div></div>`;
+      $("#c-save").addEventListener("click", () => {
+        const name = clean($("#c-name").value), phone = $("#c-phone").value.trim();
+        let ok = fieldErr("c-name", name.length < 3 ? "Ingresa tu nombre" : "");
+        ok = fieldErr("c-phone", /^9\d{8}$/.test(phone) ? "" : "Celular de 9 dígitos que empiece con 9") && ok;
+        if (!ok) return;
+        const users = auth.users(); const u = users.find((x) => x.email === cur.email);
+        u.name = name; u.phone = phone; if (auth.saveUsers(users)) { toast("Datos actualizados"); route(); }
+      });
+      $$("[data-cancel]", root).forEach((btn) => btn.addEventListener("click", () => {
+        if (!confirm("¿Cancelar esta reserva?")) return;
+        const all = bookings(); const b = all.find((x) => x.code === btn.dataset.cancel);
+        if (b) { b.status = "cancelada"; LS.set("fastfit_bookings", all); toast("Reserva cancelada"); paint(); }
+      }));
+    }
+    paint();
+  }
+
+  /* ---------- PANEL DEL PROFESIONAL ---------- */
+  function fileToAvatar(file, cb) {
+    const fr = new FileReader();
+    fr.onload = () => {
+      const img = new Image();
+      img.onload = () => {
+        const sz = Math.min(img.width, img.height), c = document.createElement("canvas");
+        c.width = c.height = 256;
+        c.getContext("2d").drawImage(img, (img.width - sz) / 2, (img.height - sz) / 2, sz, sz, 0, 0, 256, 256);
+        cb(c.toDataURL("image/jpeg", 0.82));
+      };
+      img.onerror = () => toast("No se pudo leer la imagen");
+      img.src = fr.result;
+    };
+    fr.readAsDataURL(file);
+  }
+
+  function initPanel() {
+    const cur = auth.current();
+    if (!cur) { location.hash = "#/login?next=panel"; return; }
+    if (cur.role !== "pro") { location.hash = "#/cuenta"; return; }
+    renderHeader("panel");
+    const root = $("#panel-root");
+    let newPhoto = null;
+    const pro = cur.pro;
+    const mine = bookings().filter((b) => b.proId === cur.proId).sort(sortB);
+    root.innerHTML = `<h1 class="page-title">Mi panel profesional</h1><div class="account-grid">
+      <div class="panel"><h2>Mi perfil público</h2>
+        <div class="photo-row"><div id="p-avatar">${avatar(pro, true)}</div>
+          <div><label class="btn-primary btn-outline" style="cursor:pointer">Cambiar foto<input type="file" id="p-photo" accept="image/*" hidden></label><div class="muted" style="margin-top:6px">JPG o PNG</div></div></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-cat">Especialidad</label><select id="p-cat">${CATEGORIES.map((c) => `<option value="${c.key}" ${c.key === pro.cat ? "selected" : ""}>${c.role}</option>`).join("")}</select></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-zone">Distrito principal</label><select id="p-zone">${DISTRICTS.map((d) => `<option ${d === pro.zone ? "selected" : ""}>${d}</option>`).join("")}</select></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-price">Tarifa por sesión (S/)</label><input id="p-price" type="number" min="20" max="500" step="5" value="${pro.price}"><div class="err"></div></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-services">Servicios (separados por coma)</label><input id="p-services" value="${pro.services.join(", ")}"><div class="err"></div></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-bio">Sobre mí</label><textarea id="p-bio" maxlength="500">${pro.bio}</textarea><div class="err"></div></div>
+        <div class="field" style="margin-bottom:14px"><label for="p-video">Video (link de YouTube o de tu archivo)</label><input id="p-video" placeholder="https://youtu.be/..." value="${pro.video || ""}"><div class="err"></div></div>
+        <button class="btn-primary btn-coral btn-lg" id="p-save" style="width:100%">Guardar perfil</button>
+        <a class="btn-primary btn-lg btn-outline" href="#/perfil?id=${pro.id}" style="display:block;text-align:center;margin-top:10px">Ver mi perfil público</a>
+        <button class="btn-primary btn-lg btn-outline" data-logout style="width:100%;margin-top:10px">Cerrar sesión</button></div>
+      <div class="panel"><h2>Reservas recibidas</h2>${mine.length ? mine.map((b) => bookingRow(b, "pro")).join("") : '<p class="muted" style="margin:0">Todavía no tienes reservas. Cuando un cliente reserve contigo, aparecerá aquí.</p>'}</div></div>`;
+
+    $("#p-photo").addEventListener("change", (e) => {
+      const f = e.target.files[0]; if (!f) return;
+      fileToAvatar(f, (data) => { newPhoto = data; $("#p-avatar").innerHTML = avatar({ ...pro, img: data }, true); });
+    });
+    $("#p-save").addEventListener("click", () => {
+      const price = Number($("#p-price").value);
+      const services = clean($("#p-services").value).split(",").map((x) => x.trim()).filter(Boolean).slice(0, 8);
+      const bio = clean($("#p-bio").value);
+      const video = $("#p-video").value.trim();
+      let ok = fieldErr("p-price", price >= 20 && price <= 500 ? "" : "Tarifa entre S/ 20 y S/ 500");
+      ok = fieldErr("p-services", services.length ? "" : "Agrega al menos un servicio") && ok;
+      ok = fieldErr("p-bio", bio.length >= 30 ? "" : "Mínimo 30 caracteres") && ok;
+      ok = fieldErr("p-video", !video || /^(https?:\/\/|images\/)[^\s"'<>`]+$/.test(video) ? "" : "Usa un link que empiece con https:// o images/") && ok;
+      if (!ok) return;
+      const users = auth.users(); const u = users.find((x) => x.email === cur.email);
+      Object.assign(u.pro, { cat: $("#p-cat").value, zone: $("#p-zone").value, price, services, bio, video });
+      if (newPhoto) u.pro.img = newPhoto;
+      if (auth.saveUsers(users)) { syncPro(u.pro); toast("Perfil actualizado"); route(); }
+    });
+  }
+
+  /* ---------- Router (una sola página, rutas con #) ---------- */
+  const INITS = { home: initHome, buscar: initBuscar, perfil: initPerfil, horario: initHorario, checkout: initCheckout, confirmacion: initConfirmacion, login: initLogin, registro: initRegistro, cuenta: initCuenta, panel: initPanel };
+  const SECTIONS = { "como-funciona": 1, "para-profesionales": 1, "ayuda": 1 };
+  function route() {
+    const raw = location.hash.replace(/^#\/?/, "");
+    const parts = raw.split("?");
+    const path = parts[0];
+    params = new URLSearchParams(parts[1] || "");
+    let page = INITS[path] ? path : "home";
+    const section = SECTIONS[path] ? path : null;
+    $("#app").innerHTML = '<div id="site-header"></div>' + PAGE_HTML[page] + '<div id="site-footer"></div>';
+    INITS[page]();
+    renderFooter();
+    const heroImg = new Image();
+    heroImg.onerror = () => { const h = $(".hero"); if (h) h.classList.add("no-photo"); };
+    heroImg.src = "images/hero.jpg";
+    if (section) { const el = document.getElementById(section); if (el) el.scrollIntoView(); } else window.scrollTo(0, 0);
+  }
+  document.addEventListener("click", (e) => {
+    const lo = e.target.closest("[data-logout]");
+    if (lo) { e.preventDefault(); auth.logout(); history.replaceState(null, "", "#/"); route(); return; }
+    const dd = $("#user-dd");
+    if (e.target.closest("#user-btn") && dd) { dd.classList.toggle("open"); return; }
+    if (dd) dd.classList.remove("open");
+  });
+  window.addEventListener("hashchange", route);
+  loadCustomPros();
+  route();
+})();
+
+</script>
+</body>
+</html>
