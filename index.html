@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>FastFit · Encuentra un profesional que se adapte a tus objetivos</title>
+  <meta name="description" content="Personal trainers, nutricionistas, fisioterapeutas y chefs verificados en Lima Metropolitana.">
+  <link rel="icon" href="images/logo.png">
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body data-page="home">
+
+  <header class="site-header">
+    <div class="inner">
+      <a class="brand" href="index.html" aria-label="FastFit inicio">
+        <img class="logo" src="images/logo.png" alt="" onerror="this.style.display='none';this.parentNode.classList.add('no-logo')">
+        <span class="name">FastFit</span>
+      </a>
+      <button class="nav-toggle" type="button" aria-label="Abrir menú">☰</button>
+      <div class="header-right">
+        <nav class="main-nav" aria-label="Principal">
+          <a href="buscar.html" data-nav="buscar">Explorar</a>
+          <a href="index.html#como-funciona">Cómo funciona</a>
+          <a href="index.html#para-profesionales">Para profesionales</a>
+          <a href="index.html#ayuda">Ayuda</a>
+          <span id="mobile-auth"></span>
+        </nav>
+        <div class="auth-area" id="auth-area"></div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <video class="hero-video" autoplay muted loop playsinline preload="auto"><source src="images/hero.mp4" type="video/mp4" onerror="this.parentNode.remove()"></video>
+      <h1>Encuentra un profesional que se adapte a tus objetivos</h1>
+      <p class="sub">Personal trainers, nutricionistas, fisioterapeutas y chefs verificados en Lima Metropolitana</p>
+      <div id="search-slot"></div>
+      <div style="height:5px"></div>
+    </section>
+
+    <section class="chips-bar" aria-label="Categorías">
+      <div class="container"><div class="chips" id="chips"></div></div>
+    </section>
+
+    <section class="section" id="profesionales">
+      <div class="container">
+        <h2 class="section-title">Profesionales Destacados:</h2>
+        <div class="grid-cards" id="featured"></div>
+      </div>
+    </section>
+
+    <section class="section" id="como-funciona">
+      <div class="container">
+        <h2 class="section-title">Cómo funciona:</h2>
+        <div class="steps">
+          <article class="step"><div class="num">01</div><h3>Busca</h3><p>Elige el tipo de profesional y tu zona en Lima Metropolitana.</p></article>
+          <article class="step"><div class="num">02</div><h3>Reserva</h3><p>Revisa perfiles, reseñas y precios, y agenda el horario que te acomode.</p></article>
+          <article class="step"><div class="num">03</div><h3>Entrena y mejora</h3><p>Paga de forma segura y recibe tu sesión con profesionales verificados.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="para-profesionales">
+      <div class="container">
+        <div class="cta-band">
+          <div><h3>¿Eres profesional del fitness o bienestar?</h3><p>Únete a FastFit y conecta con nuevos clientes en Lima.</p></div>
+          <a class="btn-primary btn-lg btn-coral" href="registro.html?tipo=pro">Crear cuenta profesional</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="ayuda">
+      <div class="container faq">
+        <h2 class="section-title">Ayuda:</h2>
+        <details><summary>¿Los profesionales están verificados?</summary><p>Sí. Validamos la identidad y credenciales de cada profesional antes de publicar su perfil.</p></details>
+        <details><summary>¿Puedo cancelar una reserva?</summary><p>Puedes cancelar sin costo hasta 24 horas antes de tu sesión.</p></details>
+        <details><summary>¿Qué métodos de pago aceptan?</summary><p>Tarjeta de crédito/débito, Yape y Plin.</p></details>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <span><b>FastFit</b> · Marketplace de servicios fitness y bienestar en Lima Metropolitana</span>
+      <span>© <span id="footer-year">2026</span> FastFit. Todos los derechos reservados.</span>
+    </div>
+  </footer>
+
+  <script src="js/data.js"></script>
+  <script src="js/auth.js"></script>
+  <script src="js/ui.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
